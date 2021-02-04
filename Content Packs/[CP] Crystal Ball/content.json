@@ -1,0 +1,16 @@
+{
+   "Format": "1.19.0",
+   "Changes": [
+      {
+         "Action": "EditImage",
+         "Target": "{{spacechase0.JsonAssets/ObjectSpriteTilesheet:Crystal Ball}}",
+         "FromFile": "assets/Crystal Ball-{{Thom1729.CrystalBall/Luck}}.png",
+         "FromArea": { "X": "0", "Y": "0", "Width": "16", "Height": "16" },
+         "ToArea": {
+            "X": "{{spacechase0.JsonAssets/ObjectSpriteX:Crystal Ball}}",
+            "Y": "{{spacechase0.JsonAssets/ObjectSpriteY:Crystal Ball}}",
+            "Width": "16", "Height": "16"
+         }
+      },
+   ]
+}

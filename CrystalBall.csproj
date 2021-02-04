@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+
+    <EnableModDeploy>false</EnableModDeploy>
+    <EnableModZip>false</EnableModZip>
+
+    <DistPath>$(ProjectDir)dist/</DistPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="3.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <UsingTask TaskName="ZipDir" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v12.0.dll">
+    <ParameterGroup>
+      <ZipFileName ParameterType="System.String" Required="true" />
+      <DirectoryName ParameterType="System.String" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Reference Include="System.IO.Compression.FileSystem" />
+      <Using Namespace="System.IO.Compression" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+        try
+        {
+          Log.LogMessage(string.Format("Zipping Directory {0} to {1}", DirectoryName, ZipFileName));
+          ZipFile.CreateFromDirectory( DirectoryName, ZipFileName );
+          return true;
+        }
+        catch(Exception ex)
+        {
+          Log.LogErrorFromException(ex);
+          return false;
+        }
+      ]]></Code>
+    </Task>
+  </UsingTask>
+
+  <Target Name="CreateDistribution" DependsOnTargets="Build">
+    <PropertyGroup>
+      <DistDirPath>$(DistPath)Crystal Ball/</DistDirPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ContentPacks Include="$(ProjectDir)Content Packs/**/*.*" />
+    </ItemGroup>
+
+    <Copy SourceFiles="$(TargetDir)$(TargetName).dll" DestinationFolder="$(DistDirPath)[SMAPI] Crystal Ball" />
+    <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(DistDirPath)[SMAPI] Crystal Ball" />
+    <Copy SourceFiles="$(ProjectDir)manifest.json" DestinationFolder="$(DistDirPath)[SMAPI] Crystal Ball" />
+
+    <Copy SourceFiles="@(ContentPacks)" DestinationFolder="$(DistDirPath)/%(RecursiveDir)" />
+  </Target>
+
+  <Target Name="CreateZipfile" DependsOnTargets="CreateDistribution">
+    <ZipDir
+      ZipFileName="$(DistPath)Crystal Ball.zip"
+      DirectoryName="$(DistPath)Crystal Ball"
+    />
+  </Target>
+</Project>

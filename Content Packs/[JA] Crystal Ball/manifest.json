@@ -1,0 +1,17 @@
+﻿{
+  "Name": "[JA] Crystal Ball",
+  "Author": "Thom Smith",
+  "Version": "0.0.1",
+  "Description": "Adds a crystal ball that changes color depending on your daily luck — Content pack for JSON Assets",
+  "UniqueID": "Thom1729.CrystalBallJA",
+  "MinimumApiVersion": "3.0.0",
+  "Dependencies": [
+    {
+      "UniqueID": "Thom1729.CrystalBall",
+      "IsRequired": true
+    }
+  ],
+  "ContentPackFor": {
+    "UniqueID": "spacechase0.JsonAssets"
+  }
+}

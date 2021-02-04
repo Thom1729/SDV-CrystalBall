@@ -1,0 +1,19 @@
+[
+	{
+		"Id": "Thom1729.CrystalBall.WizardCrystalBallRecipe",
+		"GroupId": null,
+		"Title": "The Wizard's Advice",
+		"Text": "@,^An aspiring practitioner must keep one eye on the whims of fate. I have enclosed a blueprint that may be of use.^   -M. Rasmodius, Wizard",
+		"Recipe": "Crystal Ball",
+        "WhichBG": 2,
+		"TextColor": 7,
+        "Repeatable": false,
+
+		"FriendshipConditions": [
+			{
+				"NpcName": "Wizard",
+				"FriendshipLevel": 8
+			}
+		]
+    }
+]

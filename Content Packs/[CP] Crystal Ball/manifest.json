@@ -1,0 +1,25 @@
+{
+  "Name": "[CP] Crystal Ball",
+  "Author": "Thom Smith",
+  "Version": "0.0.1",
+  "Description": "Adds a crystal ball that changes color depending on your daily luck — Content pack for Content Patcher.",
+  "UniqueID": "Thom1729.CrystalBallCP",
+  "MinimumApiVersion": "3.0.0",
+  "Dependencies": [
+    {
+      "UniqueID": "spacechase0.JsonAssets",
+      "IsRequired": true
+    },
+    {
+      "UniqueID": "Thom1729.CrystalBall",
+      "IsRequired": true
+    },
+    {
+      "UniqueID": "Thom1729.CrystalBallJA",
+      "IsRequired": true
+    }
+  ],
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher"
+  }
+}

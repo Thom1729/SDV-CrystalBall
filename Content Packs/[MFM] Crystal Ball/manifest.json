@@ -1,0 +1,17 @@
+﻿{
+	"Name": "[MFM] Crystal Ball",
+	"Author": "Thom Smith",
+	"Version": "0.0.1",
+	"Description": "Adds a crystal ball that changes color depending on your daily luck — Content pack for Mail Framework Mod.",
+	"UniqueID": "Thom1729.CrystalBallMFM",
+	"MinimumApiVersion": "2.11.3",
+	"UpdateKeys": [],
+	"Dependencies": [
+		{
+			"UniqueID": "Thom1729.CrystalBallJA"
+		}
+	],
+	"ContentPackFor": {
+		"UniqueID": "DIGUS.MailFrameworkMod"
+	}
+}
